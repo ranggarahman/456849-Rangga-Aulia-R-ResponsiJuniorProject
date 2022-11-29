@@ -19,7 +19,7 @@ namespace Responsi
         private DataTable dt;
         private int gv = 1;
 
-        internal void update()
+        internal void delete()
         {
             query = "UPDATE karyawan SET (nama,id_dep) VALUES ('" + form1.textBoxNama.Text + "', " + gv + ")";
 

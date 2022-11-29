@@ -16,15 +16,32 @@ namespace Responsi
         private NpgsqlCommand cmd;
         private string conn_string = "host=localhost;port=2022;username=postgres;password=informatika;database=myNameList";
         private string query_insert;
-        private string query_get;
         private DataTable dt;
-        private int gv = 1;
+        private int insertion;
 
 
-        internal void insert()
+        internal void insert(string nama, string dep)
         {
-            query_insert = "INSERT INTO karyawan(nama,id_dep) VALUES ('" + form1.textBoxNama.Text + "', " + gv + ")";
-            query_get = "SELECT id_dep FROM departemen WHERE nama_dep ='" + form1.comboBoxDepartemen + "' ";
+            if (dep == "HR")
+            {
+                insertion = 1;
+            }
+            else if (dep == "ENG")
+            {
+                insertion = 2;
+            }
+            else if (dep == "DEV")
+            {
+                insertion = 3;
+            }
+            else if (dep == "PM")
+            {
+                insertion = 4;
+            }
+            else
+                insertion = 5;
+
+            query_insert = "INSERT INTO karyawan(nama,id_dep) VALUES ('" + nama + "', " + insertion + ")";
 
             conn = new NpgsqlConnection(conn_string);
             cmd = new NpgsqlCommand(query_insert, conn);

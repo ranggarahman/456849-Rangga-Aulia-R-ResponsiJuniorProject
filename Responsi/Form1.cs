@@ -15,23 +15,32 @@ namespace Responsi
     {
         public Form1()
         {
+
             InitializeComponent();
+
+
         }
 
         private void buttonInsert_Click(object sender, EventArgs e)
         {
             InsertHandler insertHandler = new InsertHandler();
 
-            insertHandler.insert();
+            insertHandler.insert(textBoxNama.Text, comboBoxDepartemen.Text);
+
+
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            UpdateHandler updateHandler = new UpdateHandler(); 
 
+            updateHandler.update();
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
+            DeleteHandler deleteHandler = new DeleteHandler();
+
 
         }
 
