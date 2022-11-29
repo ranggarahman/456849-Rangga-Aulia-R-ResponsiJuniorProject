@@ -34,7 +34,7 @@ namespace Responsi
         {
             UpdateHandler updateHandler = new UpdateHandler(); 
 
-            updateHandler.update();
+            updateHandler.update(textBoxNama.Text, comboBoxDepartemen.Text);
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)

@@ -17,11 +17,29 @@ namespace Responsi
         private string conn_string = "host=localhost;port=2022;username=postgres;password=informatika;database=myNameList";
         private string query;
         private DataTable dt;
-        private int gv = 1;
+        private int insertion;
 
-        internal void update()
+        internal void update(string nama, string dep)
         {
-            query = "UPDATE karyawan SET nama  = '" + form1.textBoxNama.Text + "' ,id_dep=  " + gv + " ";
+            if (dep == "HR")
+            {
+                insertion = 1;
+            }
+            else if (dep == "ENG")
+            {
+                insertion = 2;
+            }
+            else if (dep == "DEV")
+            {
+                insertion = 3;
+            }
+            else if (dep == "PM")
+            {
+                insertion = 4;
+            }
+            else
+                insertion = 5;
+            query = "UPDATE karyawan SET nama  = '" + form1.textBoxNama.Text + "' ,id_dep=  " + insertion + " ";
 
             conn = new NpgsqlConnection(conn_string);
             cmd = new NpgsqlCommand(query, conn);
